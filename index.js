@@ -167,7 +167,18 @@ function fall() {
     }
   }
 
-
+  function gameOver() {
+    isGameOver = true
+    while (grid.firstChild) {
+      console.log('remove')
+      grid.removeChild(grid.firstChild)
+    }
+    grid.innerHTML = score
+    clearInterval(upTimerId)
+    clearInterval(downTimerId)
+    clearInterval(leftTimerId)
+    clearInterval(rightTimerId)
+  }
   function start() {
     if (!isGameOver) {
       createPlatforms()
